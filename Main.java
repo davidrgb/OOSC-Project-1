@@ -8,6 +8,7 @@ public class Main {
         JFrame window = new JFrame();
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setLocation(400, 100);
+        window.setTitle("Project 1: Word Guess Game");
 
         var gamePanel = new GamePanel(window);
         gamePanel.init();

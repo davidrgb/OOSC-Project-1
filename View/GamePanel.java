@@ -14,7 +14,7 @@ public class GamePanel {
     private JFrame window;
     private JTextField targetField = new JTextField();
     private JTextField inputField = new JTextField();
-    //canvas
+    private GameCanvas canvas;
     private JButton[] letterButtons;
     private JButton newButton = new JButton("New");
 
@@ -41,7 +41,8 @@ public class GamePanel {
 
         container.add(BorderLayout.NORTH, northPanel);
 
-        //canvas
+        canvas = new GameCanvas(this);
+        container.add(BorderLayout.CENTER, canvas);
 
         JPanel southPanel = new JPanel();
         southPanel.setLayout(new GridLayout(4, 7));
@@ -64,5 +65,9 @@ public class GamePanel {
         for (var b: letterButtons) {
             b.setEnabled(false);
         }
+    }
+
+    public GameState getGameState() {
+        return gameState;
     }
 }
