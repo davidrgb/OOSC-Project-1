@@ -21,7 +21,6 @@ public class GameCanvas extends JPanel {
     public GameCanvas(GamePanel panel) {
         this.panel = panel;
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
-        //setBackground(Color.white);
     }
 
     @Override
