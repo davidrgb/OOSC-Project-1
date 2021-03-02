@@ -13,7 +13,7 @@ public class GameCanvas extends JPanel {
     public static int WIDTH = 500;
     public static int HEIGHT = 500;
 
-    private int health;
+    private int health = 5;
     private int remainingLetters;
 
     private GamePanel panel;
@@ -43,6 +43,15 @@ public class GameCanvas extends JPanel {
                 g2.setColor(Color.blue);
                 g2.setFont(new Font("Courier New", Font.BOLD, 30));
                 g2.drawString("Press <New> to Start", 70, 150);
+            }
+
+            else {
+                g2.setColor(Color.blue);
+                g2.setFont(new Font("Courier New", Font.BOLD, 40));
+                g2.drawString("Health Level", 30, 50);
+                for (int i = 0; i < health; i++) {
+                    g2.fillRect(i * 50 + 30, 75, 45, 50);
+                }
             }
         }
     }
