@@ -34,6 +34,16 @@ public class GameCanvas extends JPanel {
             g2.setColor(Color.blue);
             g2.setFont(new Font("Courier New", Font.BOLD, 30));
             g2.drawString("Press <New> to Start", 70, 150);
+        } else {
+
+            if (gameState == GamePanel.GameState.GAMEOVER) {
+                g2.setColor(Color.red);
+                g2.setFont(new Font("Courier New", Font.BOLD, 30));
+                g2.drawString("YOU LOST !!!", 70, 100);
+                g2.setColor(Color.blue);
+                g2.setFont(new Font("Courier New", Font.BOLD, 30));
+                g2.drawString("Press <New> to Start", 70, 150);
+            }
         }
     }
 }
