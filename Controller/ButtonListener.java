@@ -11,7 +11,6 @@ import View.GamePanel;
 public class ButtonListener implements ActionListener{
     
     private GamePanel panel;
-    private int clicks = 0;
 
     public ButtonListener(GamePanel panel) {
         this.panel = panel;
@@ -31,6 +30,41 @@ public class ButtonListener implements ActionListener{
             }
             //canvas set health
             panel.getCanvas().repaint();
+            System.out.println(game.getHealth());
+        } else {
+
+            button.setEnabled(false);
+
+            Game game = panel.getGame();
+
+            String target = game.getTarget();
+            String input = game.getInput();
+            String letter = button.getText();
+            boolean found = false;
+
+            for (int i = 0; i < target.length(); i++) {
+                if (target.substring(i, i+1).equals(letter)) {
+                    found = true;
+                    String temp_before = "";
+                    if (i > 0) temp_before = input.substring(0, i);
+                    String temp_after = "";
+                    if (i < target.length() - 1) temp_after = input.substring(i + 1, target.length());
+                    input = temp_before + letter + temp_after;
+                    System.out.println(input);
+                    game.setInput(input);
+                    panel.setInput(input);
+                }
+            }
+
+            if (!found) game.reduceHealth();
+
+            if (game.getHealth() == 0) {
+                panel.setGameState(GamePanel.GameState.GAMEOVER);
+                for (var b: panel.getLetterButtons()) {
+                    b.setEnabled(false);
+                }
+                panel.getCanvas().repaint();
+            }
         }
     }
 }

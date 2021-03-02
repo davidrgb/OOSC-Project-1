@@ -50,7 +50,9 @@ public class Game {
             wordPool.add("graphics");
         }
         input = "";
+        health = 5;
         generateTarget();
+        remainingLetters = target.length();
     }
 
     public void generateTarget() {       
@@ -67,11 +69,19 @@ public class Game {
         return target;
     }
 
-    public void generateInput() {
-
+    public void setInput(String input) {
+        this.input = input;
     }
 
     public String getInput() {
         return input;
+    }
+
+    public void reduceHealth() {
+        health--;
+    }
+
+    public int getHealth() {
+        return health;
     }
 }

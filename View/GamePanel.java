@@ -110,4 +110,16 @@ public class GamePanel {
     public GameCanvas getCanvas() {
         return canvas;
     }
+
+    public String getTarget() {
+        return targetField.getText();
+    }
+
+    public String getInput() {
+        return inputField.getText();
+    }
+    
+    public Game getGame() {
+        return game;
+    }
 }
