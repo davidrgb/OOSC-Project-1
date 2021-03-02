@@ -49,6 +49,7 @@ public class Game {
             wordPool.add("heavily");
             wordPool.add("graphics");
         }
+        input = "";
         generateTarget();
     }
 
@@ -57,9 +58,20 @@ public class Game {
         int size = wordPool.size();
         int index = random.nextInt(size);
         target = wordPool.get(index);
+        for (int i = 0; i < target.length(); i++) {
+            input += '.';
+        }
     }
 
     public String getTarget() {
         return target;
+    }
+
+    public void generateInput() {
+
+    }
+
+    public String getInput() {
+        return input;
     }
 }

@@ -45,6 +45,8 @@ public class GamePanel {
         targetField.setFont(new Font("Courier New", Font.BOLD, 18));
         targetField.setForeground(Color.red);
         inputField.setEditable(false);
+        inputField.setFont(new Font("Courier New", Font.BOLD, 18));
+        inputField.setForeground(Color.black);
 
         container.add(BorderLayout.NORTH, northPanel);
 

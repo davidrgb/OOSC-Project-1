@@ -25,7 +25,7 @@ public class ButtonListener implements ActionListener{
             panel.setGame(game);
             panel.setGameState(GamePanel.GameState.PLAYING);
             panel.setTarget(game.getTarget());
-            panel.setInput("");
+            panel.setInput(game.getInput());
             for (var b: panel.getLetterButtons()) {
                 b.setEnabled(true);
             }
