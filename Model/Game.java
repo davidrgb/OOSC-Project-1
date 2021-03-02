@@ -14,10 +14,6 @@ public class Game {
     private int remainingLetters;
 
     public Game() {
-        generateTarget();
-    }
-
-    public void generateTarget() {
         if (true) {
             wordPool.add("communication");
             wordPool.add("science");
@@ -53,5 +49,13 @@ public class Game {
             wordPool.add("heavily");
             wordPool.add("graphics");
         }
+        generateTarget();
+    }
+
+    public void generateTarget() {       
+        Random random = new Random();
+        int size = wordPool.size();
+        int index = random.nextInt(size);
+        target = wordPool.get(index);
     }
 }

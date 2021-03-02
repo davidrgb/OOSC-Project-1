@@ -9,6 +9,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import Model.Game;
+
 public class GamePanel {
     
     private JFrame window;
@@ -23,7 +25,7 @@ public class GamePanel {
     }
     private GameState gameState = GameState.READY;
     
-    //game
+    private Game game;
 
     public GamePanel(JFrame window) {
         this.window = window;
