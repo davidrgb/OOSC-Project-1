@@ -58,4 +58,8 @@ public class Game {
         int index = random.nextInt(size);
         target = wordPool.get(index);
     }
+
+    public String getTarget() {
+        return target;
+    }
 }

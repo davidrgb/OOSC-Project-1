@@ -1,7 +1,9 @@
 package View;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
+import java.awt.Font;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
@@ -9,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import Controller.ButtonListener;
 import Model.Game;
 
 public class GamePanel {
@@ -39,6 +42,8 @@ public class GamePanel {
         northPanel.add(targetField);
         northPanel.add(inputField);
         targetField.setEditable(false);
+        targetField.setFont(new Font("Courier New", Font.BOLD, 18));
+        targetField.setForeground(Color.red);
         inputField.setEditable(false);
 
         container.add(BorderLayout.NORTH, northPanel);
@@ -50,6 +55,7 @@ public class GamePanel {
         southPanel.setLayout(new GridLayout(4, 7));
 
         //button listener
+        ButtonListener buttonListener = new ButtonListener(this);
 
         letterButtons = new JButton[26];
         for (int i = 0; i < 26; i++) {
@@ -57,9 +63,11 @@ public class GamePanel {
             letterButtons[i] = new JButton(text + "");
             southPanel.add(letterButtons[i]);
             //add action listener
+            letterButtons[i].addActionListener(buttonListener);
         }
 
         //add new button listener
+        newButton.addActionListener(buttonListener);
         southPanel.add(newButton);
 
         container.add(BorderLayout.SOUTH, southPanel);
@@ -71,5 +79,33 @@ public class GamePanel {
 
     public GameState getGameState() {
         return gameState;
+    }
+
+    public void setGameState(GameState gameState) {
+        this.gameState = gameState;
+    }
+
+    public JButton getNewButton() {
+        return newButton;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
+    public void setTarget(String target) {
+        targetField.setText(target);
+    }
+    
+    public void setInput(String input) {
+        inputField.setText(input);
+    }
+
+    public JButton[] getLetterButtons() {
+        return letterButtons;
+    }
+
+    public GameCanvas getCanvas() {
+        return canvas;
     }
 }
