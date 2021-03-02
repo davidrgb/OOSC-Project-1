@@ -30,7 +30,6 @@ public class ButtonListener implements ActionListener{
             }
             //canvas set health
             panel.getCanvas().repaint();
-            System.out.println(game.getHealth());
         } else {
 
             button.setEnabled(false);
@@ -43,14 +42,15 @@ public class ButtonListener implements ActionListener{
             boolean found = false;
 
             for (int i = 0; i < target.length(); i++) {
-                if (target.substring(i, i+1).equals(letter)) {
+                if (target.substring(i, i + 1).equals(letter)) {
                     found = true;
+                    game.reduceRemainingLetters();
+                    //System.out.println(game.getRemainingLetters());
                     String temp_before = "";
                     if (i > 0) temp_before = input.substring(0, i);
                     String temp_after = "";
                     if (i < target.length() - 1) temp_after = input.substring(i + 1, target.length());
                     input = temp_before + letter + temp_after;
-                    System.out.println(input);
                     game.setInput(input);
                     panel.setInput(input);
                 }
@@ -58,13 +58,14 @@ public class ButtonListener implements ActionListener{
 
             if (!found) game.reduceHealth();
 
-            if (game.getHealth() == 0) {
+            if (game.getHealth() == 0 || game.getRemainingLetters() == 0) {
                 panel.setGameState(GamePanel.GameState.GAMEOVER);
                 for (var b: panel.getLetterButtons()) {
                     b.setEnabled(false);
                 }
-                panel.getCanvas().repaint();
             }
+
+            panel.getCanvas().repaint();
         }
     }
 }

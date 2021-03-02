@@ -39,7 +39,13 @@ public class GameCanvas extends JPanel {
             if (gameState == GamePanel.GameState.GAMEOVER) {
                 g2.setColor(Color.red);
                 g2.setFont(new Font("Courier New", Font.BOLD, 30));
-                g2.drawString("YOU LOST !!!", 70, 100);
+                remainingLetters = panel.getGame().getRemainingLetters();
+                if (remainingLetters == 0) {
+                    g2.drawString("YOU WON !!!", 70, 100);
+                }
+                else {
+                    g2.drawString("YOU LOST !!!", 70, 100);
+                }
                 g2.setColor(Color.blue);
                 g2.setFont(new Font("Courier New", Font.BOLD, 30));
                 g2.drawString("Press <New> to Start", 70, 150);

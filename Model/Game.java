@@ -81,7 +81,15 @@ public class Game {
         health--;
     }
 
+    public void reduceRemainingLetters() {
+        remainingLetters--;
+    }
+
     public int getHealth() {
         return health;
+    }
+
+    public int getRemainingLetters() {
+        return remainingLetters;
     }
 }
