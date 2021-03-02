@@ -56,7 +56,6 @@ public class GamePanel {
         JPanel southPanel = new JPanel();
         southPanel.setLayout(new GridLayout(4, 7));
 
-        //button listener
         ButtonListener buttonListener = new ButtonListener(this);
 
         letterButtons = new JButton[26];
@@ -64,11 +63,9 @@ public class GamePanel {
             char text = (char)('a' + i);
             letterButtons[i] = new JButton(text + "");
             southPanel.add(letterButtons[i]);
-            //add action listener
             letterButtons[i].addActionListener(buttonListener);
         }
 
-        //add new button listener
         newButton.addActionListener(buttonListener);
         southPanel.add(newButton);
 

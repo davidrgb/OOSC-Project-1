@@ -28,7 +28,6 @@ public class ButtonListener implements ActionListener{
             for (var b: panel.getLetterButtons()) {
                 b.setEnabled(true);
             }
-            //canvas set health
             panel.getCanvas().repaint();
         } else {
 
@@ -45,7 +44,6 @@ public class ButtonListener implements ActionListener{
                 if (target.substring(i, i + 1).equals(letter)) {
                     found = true;
                     game.reduceRemainingLetters();
-                    //System.out.println(game.getRemainingLetters());
                     String temp_before = "";
                     if (i > 0) temp_before = input.substring(0, i);
                     String temp_after = "";
