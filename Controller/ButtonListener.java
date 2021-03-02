@@ -44,11 +44,11 @@ public class ButtonListener implements ActionListener{
                 if (target.substring(i, i + 1).equals(letter)) {
                     found = true;
                     game.reduceRemainingLetters();
-                    String temp_before = "";
-                    if (i > 0) temp_before = input.substring(0, i);
-                    String temp_after = "";
-                    if (i < target.length() - 1) temp_after = input.substring(i + 1, target.length());
-                    input = temp_before + letter + temp_after;
+                    String tempBefore = "";
+                    if (i > 0) tempBefore = input.substring(0, i);
+                    String tempAfter = "";
+                    if (i < target.length() - 1) tempAfter = input.substring(i + 1, target.length());
+                    input = tempBefore + letter + tempAfter;
                     game.setInput(input);
                     panel.setInput(input);
                 }
